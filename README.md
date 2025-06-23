@@ -22,14 +22,14 @@ This project demonstrates the creation of a Virtual Private Cloud (VPC) in AWS f
    - Checked for CIDR conflicts and corrected with `10.0.64.0/24` for the public subnet after encountering an error.
 
    **Screenshots**:
-   - **Capture1**: Selected the **US East (Ohio)** region in the AWS Console to create the VPC.
-     ![Capture1](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture1.png)
-   - **Capture2**: Navigated to the **VPC Dashboard** to begin creating the VPC.
-     ![Capture2](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture2.png)
-   - **Capture3**: Created a new VPC with the CIDR block `10.0.0.0/16` and entered the required configurations.
-     ![Capture3](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture3.png)
-   - **Capture4**: The VPC was successfully created with the specified CIDR block.
-     ![Capture4](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture4.png)
+   - **Capture1**: Selected the **US East (Ohio)** region in the AWS Console to create the VPC.  
+     ![Capture1](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture1.PNG)
+   - **Capture2**: Navigated to the **VPC Dashboard** to begin creating the VPC.  
+     ![Capture2](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture2.PNG)
+   - **Capture3**: Created a new VPC with the CIDR block `10.0.0.0/16` and entered the required configurations.  
+     ![Capture3](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture3.PNG)
+   - **Capture4**: The VPC was successfully created with the specified CIDR block.  
+     ![Capture4](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture4.PNG)
 
 ---
 
@@ -39,14 +39,14 @@ This project demonstrates the creation of a Virtual Private Cloud (VPC) in AWS f
 2. **Public and Private Subnets**: Created public and private subnets with CIDR blocks `10.0.64.0/24` and `10.0.200.0/24` respectively.
 
    **Screenshots**:
-   - **Capture5**: Attempted to create a public subnet with the CIDR block `10.0.10.0/24` but received a CIDR conflict error.
-     ![Capture5](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture5.png)
-   - **Capture6**: Error message indicating a **CIDR conflict** occurred because the new subnet's block overlaps with existing subnets.
-     ![Capture6](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture6.png)
-   - **Capture7**: Used the **AWS CLI** to check for existing subnets and identify the conflict with the new subnet.
-     ![Capture7](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture7.png)
-   - **Capture8**: After correcting the CIDR block, successfully created the **public subnet** with the `10.0.64.0/24` range.
-     ![Capture8](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture8.png)
+   - **Capture5**: Attempted to create a public subnet with the CIDR block `10.0.10.0/24` but received a CIDR conflict error.  
+     ![Capture5](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture5.PNG)
+   - **Capture6**: Error message indicating a **CIDR conflict** occurred because the new subnet's block overlaps with existing subnets.  
+     ![Capture6](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture6.PNG)
+   - **Capture7**: Used the **AWS CLI** to check for existing subnets and identify the conflict with the new subnet.  
+     ![Capture7](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture7.PNG)
+   - **Capture8**: After correcting the CIDR block, successfully created the **public subnet** with the `10.0.64.0/24` range.  
+     ![Capture8](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture8.PNG)
 
 ---
 
@@ -56,8 +56,8 @@ This project demonstrates the creation of a Virtual Private Cloud (VPC) in AWS f
 2. **No additional IGW required**: Since only one IGW per VPC is needed, no additional IGWs were created.
 
    **Screenshot**:
-   - **Capture13**: **Internet Gateway (IGW)** automatically attached to the VPC, enabling internet access for public subnets.
-     ![Capture13](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture13.png)
+   - **Capture13**: **Internet Gateway (IGW)** automatically attached to the VPC, enabling internet access for public subnets.  
+     ![Capture13](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture13.PNG)
 
 ---
 
@@ -67,18 +67,18 @@ This project demonstrates the creation of a Virtual Private Cloud (VPC) in AWS f
 2. **Associate Route Table**: Associated the public subnets with the route table to enable internet access.
 
    **Screenshots**:
-   - **Capture14**: Created a new route table `RouteTable-Public-aws-vpc-lab` and added a route pointing to `0.0.0.0/0` for internet traffic.
-     ![Capture14](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture14.png)
-   - **Capture15**: Successfully created the route table with the new route to the Internet Gateway.
-     ![Capture15](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture15.png)
-   - **Capture16**: Added the `0.0.0.0/0` route to ensure public subnets have access to the internet via the IGW.
-     ![Capture16](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture16.png)
-   - **Capture17**: Route table successfully updated with the internet route and applied to the correct subnets.
-     ![Capture17](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture17.png)
-   - **Capture18**: Edited subnet association to connect public subnets with the route table for internet access.
-     ![Capture18](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture18.png)
-   - **Capture19**: Subnet association was successfully updated, and public subnets were associated with the route table.
-     ![Capture19](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture19.png)
+   - **Capture14**: Created a new route table `RouteTable-Public-aws-vpc-lab` and added a route pointing to `0.0.0.0/0` for internet traffic.  
+     ![Capture14](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture14.PNG)
+   - **Capture15**: Successfully created the route table with the new route to the Internet Gateway.  
+     ![Capture15](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture15.PNG)
+   - **Capture16**: Added the `0.0.0.0/0` route to ensure public subnets have access to the internet via the IGW.  
+     ![Capture16](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture16.PNG)
+   - **Capture17**: Route table successfully updated with the internet route and applied to the correct subnets.  
+     ![Capture17](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture17.PNG)
+   - **Capture18**: Edited subnet association to connect public subnets with the route table for internet access.  
+     ![Capture18](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture18.PNG)
+   - **Capture19**: Subnet association was successfully updated, and public subnets were associated with the route table.  
+     ![Capture19](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture19.PNG)
 
 ---
 
@@ -88,12 +88,12 @@ This project demonstrates the creation of a Virtual Private Cloud (VPC) in AWS f
 2. **Edit Inbound Rules**: Configured inbound rules to manage traffic.
 
    **Screenshots**:
-   - **Capture20**: Created the **NACL** for controlling traffic between public and private subnets.
-     ![Capture20](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture20.png)
-   - **Capture21**: NACL creation was successful, and it was linked to the VPC.
-     ![Capture21](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture21.png)
-   - **Capture22**: Edited inbound rules to control the types of traffic allowed into the VPC.
-     ![Capture22](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture22.png)
+   - **Capture20**: Created the **NACL** for controlling traffic between public and private subnets.  
+     ![Capture20](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture20.PNG)
+   - **Capture21**: NACL creation was successful, and it was linked to the VPC.  
+     ![Capture21](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture21.PNG)
+   - **Capture22**: Edited inbound rules to control the types of traffic allowed into the VPC.  
+     ![Capture22](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture22.PNG)
 
 ---
 
@@ -103,12 +103,12 @@ This project demonstrates the creation of a Virtual Private Cloud (VPC) in AWS f
 2. **Inbound Rules**: Configured inbound rules to allow SSH (port 22) from a specific IP, MySQL (port 3306), and HTTP (port 80) from anywhere.
 
    **Screenshots**:
-   - **Capture23**: Created the **Security Group** for SSH and MySQL/Aurora access to the instances in the VPC.
-     ![Capture23](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture23.png)
-   - **Capture24**: Edited inbound rules for SSH, MySQL, and HTTP access.
-     ![Capture24](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture24.png)
-   - **Capture25**: Successfully created the security group with appropriate access rules.
-     ![Capture25](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture25.png)
+   - **Capture23**: Created the **Security Group** for SSH and MySQL/Aurora access to the instances in the VPC.  
+     ![Capture23](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture23.PNG)
+   - **Capture24**: Edited inbound rules for SSH, MySQL, and HTTP access.  
+     ![Capture24](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture24.PNG)
+   - **Capture25**: Successfully created the security group with appropriate access rules.  
+     ![Capture25](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture25.PNG)
 
 ---
 
@@ -118,8 +118,8 @@ This project demonstrates the creation of a Virtual Private Cloud (VPC) in AWS f
 2. **Traffic Control**: Denied unnecessary inbound traffic to ensure private subnets are isolated.
 
    **Screenshot**:
-   - **Capture26**: NACL and Security Group successfully applied to the public subnet for enhanced security.
-     ![Capture26](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture26.png)
+   - **Capture26**: NACL and Security Group successfully applied to the public subnet for enhanced security.  
+     ![Capture26](https://github.com/Sabin-Rana/aws-vpc-network-isolation/blob/main/Screenshots/Capture26.PNG)
 
 ---
 
